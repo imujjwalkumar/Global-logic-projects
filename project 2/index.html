@@ -4,34 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact from</title>
+    <title>Contact form</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js?render="6Le7Ok0hAAAAAAT5rdnB3VdjYWi0nJ0VGOtysqfe"'></script>
+    
+    <script>
+      function sendEmail(){
+        Email.send({
+        Host: "smtp.gmail.com",
+        Username: "ujjwalkk29@gmail.com",
+        Password: "password",
+        To: `it@gee.com.au, ${email}`,
+        From: "ujjwalkk29@gmail.com",
+        Subject: "Project2",
+        Body: "document.getElementById('Message').value",
+      })
+        .then(function (message) {
+          alert("mail sent to both successfully")
+        })
+      }
+    </script>
 </head>
 <body>
     <div class="container">
-        <form action="action_page.php">
+        <form  onsubmit=" check()">
+            
       
           <label for="name">Name</label>
-          <input type="text" id="fname"  placeholder="Your name.." required>
+          <input type="text" id="fname"  placeholder="Your name.." >
       
           <label for="email">Email id</label>
-          <input type="email" id="email"  placeholder="Your email id.. "required>
+          <input type="email" id="email"  placeholder="Your email id.. ">
           <br><br>
 
           <label for="phone">Phone no</label>
-          <input type="text" id="phone"  placeholder="Your phone no.." required>
+          <input type="text" name ='phone'id="phone"  placeholder="Your phone no.." >
 
           <label for="Postcode">Postcode</label>
-          <input type="text" id="phone"  placeholder="Your phone no.." required>
+          <input type="text" id="postcode"  placeholder="Your postcode .." >
             
           
           <label for="Message">Message</label>
           <textarea id="Message" placeholder="Write something.." style="height:200px"></textarea>
-      
-          <input type="submit" value="Submit">
+            
+          <div class="g-recaptcha" data-sitekey="6LdCU00hAAAAAFb5vWbCAkH4OxQylFrsvJ6Q4reG" data-callback="verifyCaptcha"></div>
+            <div id="g-recaptcha-error"></div>
+          <input type="submit" id='button' value="Submit">
       
         </form>
       </div>
-      
+      <button onclick="sendEmail()">send</button>
+      <script src="./script.js"></script>
 </body>
 </html></html>
