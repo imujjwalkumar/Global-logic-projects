@@ -10,15 +10,16 @@
     <script src='https://www.google.com/recaptcha/api.js?render="6Le7Ok0hAAAAAAT5rdnB3VdjYWi0nJ0VGOtysqfe"'></script>
     
     <script>
+      
       function sendEmail(){
         Email.send({
         Host: "smtp.gmail.com",
-        Username: "ujjwalkk29@gmail.com",
+        Username: document.getElementById('email').value,
         Password: "password",
         To: `it@gee.com.au, ${email}`,
-        From: "ujjwalkk29@gmail.com",
+        From: document.getElementById('email').value,
         Subject: "Project2",
-        Body: "document.getElementById('Message').value",
+        Body: document.getElementById('Message').value,
       })
         .then(function (message) {
           alert("mail sent to both successfully")
@@ -28,7 +29,7 @@
 </head>
 <body>
     <div class="container">
-        <form  onsubmit=" check()">
+        <form  onsubmit=" check();sendEmail();">
             
       
           <label for="name">Name</label>
@@ -54,7 +55,6 @@
       
         </form>
       </div>
-      <button onclick="sendEmail()">send</button>
       <script src="./script.js"></script>
 </body>
 </html></html>

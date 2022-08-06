@@ -17,19 +17,13 @@ function check(){
     if(!(postcode.length==4))
     return alert("wrong post code")
 
-    // var recaptcha_response = '';
+    var recaptcha_response = '';
    
-    // function verifyCaptcha(token) {
-    //     recaptcha_response = token;
-    //     document.getElementById('g-recaptcha-error').innerHTML = '';
-    // }
+    function verifyCaptcha(token) {
+        recaptcha_response = token;
+    }
 
-    // if(recaptcha_response.length == 0) {
-    //     return alert("invalid captcha");
-    // }    
-
-    
-    
-    // return a  
-
+    if(recaptcha_response.length == 0) {
+        return alert("invalid captcha");
+    }        
 }
